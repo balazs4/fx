@@ -32,6 +32,13 @@ func TestEngine(t *testing.T) {
 			errCount: 0,
 		},
 		{
+			name:     "unicode (emoji)",
+			input:    `"Hello World! \ud83d\ude80"`,
+			args:     []string{"x => this"},
+			expects:  []string{"Hello World! \\\\ud83d \\\\ude80"}, // not sure but definitve no panic
+			errCount: 0,
+		},
+		{
 			name:     "skip works",
 			input:    "1 2 3 4",
 			args:     []string{"x % 2 != 0 ? skip : x"},
